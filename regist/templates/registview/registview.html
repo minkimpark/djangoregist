@@ -1,0 +1,58 @@
+
+<html>
+<head>
+  <title>registform</title>
+</head>
+<link rel="stylesheet" type="text/css" href="/static/regist/css/style.css">
+<body>
+      <div id="content">
+        <h3 class="join_title">아이디</h3>
+        <span class="ps_box int_id">
+          <input id='login_id' type="text" class="int" maxlength="20"><br>
+        </span>
+        <h3 class="join_title">비밀번호</h3>
+        <span class="ps_box int_pass">
+          <input id='login_pass' type="password" class="int" ><br>
+        </span>
+        <h3 class="join_title">이름</h3>
+        <span class="ps_box int_name">
+          <input id='login_name' type="text" class="int" ><br>
+        </span>
+        <div class="btn_area">
+          <input type="button" class="btn_type btn_primary" value="가입하기" onclick="regist()">
+        </div>
+      </div>
+      <div id='csrf_token' hidden>{{csrf_token}}</div>
+</body>
+
+<!-- jquery cdn -->
+<script src="/static/common/vendor/jquery/jquery.js"></script>
+<script>
+
+function regist(){
+  var login_id = $('#login_id').val();
+  var login_pass = $('#login_pass').val();
+  var login_name = $('#login_name').val();
+  var csrf_token = $('#csrf_token').text();
+
+
+  console.log(login_id);
+  console.log(login_pass);
+  console.log(login_name);
+  console.log(csrf_token);
+
+  $.post( "api_regist_create", {
+    id: login_id,
+    password:login_pass,
+    name:login_name,
+    csrfmiddlewaretoken: csrf_token
+  })
+
+}
+// jquery post
+/*
+
+*/
+</script>
+
+</html>
