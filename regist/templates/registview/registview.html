@@ -27,6 +27,10 @@
 
 <!-- jquery cdn -->
 <script src="/static/common/vendor/jquery/jquery.js"></script>
+<!--sweetalert cdn-->
+<script src="/static/common/vendor/sweetalert2/sweetalert.js"></script>
+
+
 <script>
 
 function regist(){
@@ -46,9 +50,16 @@ function regist(){
     password:login_pass,
     name:login_name,
     csrfmiddlewaretoken: csrf_token
-  })
 
+  })
+  .done(function( data ) {
+    swal("Good job!", "You clicked the button!", "success")
+    .then((result)=>{window.location.href = "member/login"});
+
+  });
 }
+
+
 // jquery post
 /*
 

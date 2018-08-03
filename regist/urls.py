@@ -6,5 +6,7 @@ from .djangoapps.registok import views as RegistOk
 
 urlpatterns =[
     url('registview$',RegistViews.registview, name='registview'),
-    url('api_regist_create$',RegistOk.registok, name='registok')
+    url('api_regist_create$',RegistOk.registok, name='registok'),
+
+    url('login$',RegistViews.login, name='login')
 ]
